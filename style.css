@@ -1,11 +1,15 @@
 
-/* ҮНДСЭН ТОХИРГОО */
+/* ===================================
+   ҮНДСЭН ТОХИРГОО
+=================================== */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   font-family: 'Segoe UI', Arial, sans-serif;
+  width: 100%;
 }
 
 body {
@@ -15,6 +19,8 @@ body {
   margin: 0;
   padding: 10px 16px;
   color: #0f172a;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .page {
@@ -23,7 +29,10 @@ body {
   margin: 0 auto;
 }
 
-/* ХИЧЭЭЛИЙН ГАРЧИГ */
+/* ===================================
+   ХИЧЭЭЛИЙН ГАРЧИГ
+=================================== */
+
 #ruleLabel {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 32px;
@@ -32,7 +41,10 @@ body {
   margin: 0 0 8px;
 }
 
-/* АСУУЛТ */
+/* ===================================
+   АСУУЛТ
+=================================== */
+
 #questionText {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 36px;
@@ -44,7 +56,10 @@ body {
   letter-spacing: normal;
 }
 
-.sr-only {
+/* МЭДЭГДЛИЙГ НУУХ */
+
+.sr-only,
+#statusText {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -56,7 +71,10 @@ body {
   border: 0;
 }
 
-/* ОЛС ТАТАЛТЫН ТАЛБАЙ */
+/* ===================================
+   ОЛС ТАТАЛТЫН ТАЛБАЙ
+=================================== */
+
 .game-area {
   position: relative;
   width: 100%;
@@ -69,14 +87,19 @@ body {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
-/* ГОЛЫН УЛААН ШУГАМ */
-.center-line {
+/* ===================================
+   ГОЛЫН УЛААН ТАСАРХАЙ ШУГАМ
+=================================== */
+
+.game-area .center-line {
+  display: block;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
   width: 4px;
   transform: translateX(-50%);
+
   background: repeating-linear-gradient(
     to bottom,
     #ef4444 0px,
@@ -84,16 +107,22 @@ body {
     transparent 14px,
     transparent 24px
   );
+
   z-index: 10;
   pointer-events: none;
 }
 
-/* ОЛСНЫ ХӨДӨЛГӨӨН */
+/* ===================================
+   ХҮҮХДҮҮД БА ОЛСНЫ ХӨДӨЛГӨӨН
+=================================== */
+
 #ropeGroup {
   position: absolute;
   left: 50%;
   top: 50%;
+
   width: min(72%, 730px);
+
   --rope-offset: 0px;
 
   transform: translate(
@@ -102,6 +131,7 @@ body {
   );
 
   transition: transform 0.55s ease-in-out;
+
   z-index: 2;
 
   display: flex;
@@ -109,18 +139,25 @@ body {
   justify-content: center;
 }
 
+/* 4 ОХИН, 4 ХҮҮГИЙН ЗУРАГ */
+
 .tug-image {
   display: block;
   width: 100%;
   height: auto;
   max-height: 240px;
   object-fit: contain;
+
   pointer-events: none;
   user-select: none;
+
   mix-blend-mode: multiply;
 }
 
-/* ХОЁР БАГ */
+/* ===================================
+   ХОЁР БАГ
+=================================== */
+
 .teams {
   display: flex;
   justify-content: center;
@@ -129,63 +166,95 @@ body {
   margin: 0 auto;
 }
 
+/* БАГ ТУС БҮРИЙН ХҮРЭЭ */
+
 .team-panel {
   flex: 1;
   min-width: 0;
+
   background: #ffffff;
   padding: 12px 14px;
+
   border-radius: 16px;
   border: 2px solid #e2e8f0;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+
+  box-shadow: 0 4px 14px
+    rgba(15, 23, 42, 0.05);
 }
+
+/* БАГИЙН НЭР */
 
 .team-panel h2 {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0 0 10px;
+
   font-size: 24px;
   font-weight: 800;
   color: #1e293b;
+
   border-bottom: 2px solid #f1f5f9;
   padding-bottom: 8px;
 }
 
-/* ХАРИУЛТУУД */
+/* ===================================
+   ХАРИУЛТЫН СОНГОЛТ
+=================================== */
+
 .answers {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
+/* ХАРИУЛТЫН ТОВЧЛУУР */
+
 .answer-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   min-height: 65px;
+
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 26px;
   font-weight: 700;
+
   padding: 10px;
   margin: 0;
+
   border-radius: 14px;
   border: 3px solid #cbd5e1;
+
   background: #f8fafc;
   color: #1e293b;
+
   cursor: pointer;
   overflow-wrap: anywhere;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
-  transition: background 0.15s, border-color 0.15s;
+
+  box-shadow: 0 3px 6px
+    rgba(0, 0, 0, 0.06);
+
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
+
+/* ХУЛГАНА ОЧИХ ҮЕД */
 
 .answer-btn:hover:not(:disabled) {
   background: #e2e8f0;
   border-color: #94a3b8;
 }
 
+/* ХАРИУЛСНЫ ДАРАА */
+
 .answer-btn:disabled {
   cursor: default;
   opacity: 1;
 }
+
+/* ЗӨВ ХАРИУЛТ */
 
 .answer-btn.correct {
   background: #16a34a;
@@ -193,46 +262,64 @@ body {
   color: #ffffff;
 }
 
+/* БУРУУ ХАРИУЛТ */
+
 .answer-btn.wrong {
   background: #dc2626;
   border-color: #b91c1c;
   color: #ffffff;
 }
 
-/* ДАХИН ТОГЛОХ */
+/* ===================================
+   ДАХИН ТОГЛОХ
+=================================== */
+
 #restartBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: auto;
   min-width: 190px;
   min-height: 55px;
+
   margin-top: 16px;
   padding: 10px 26px;
+
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 20px;
   font-weight: 800;
+
   background: #2563eb;
   color: #ffffff;
+
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+
+  box-shadow: 0 4px 12px
+    rgba(37, 99, 235, 0.28);
 }
 
 #restartBtn:hover {
   background: #1d4ed8;
 }
 
-/* ЯЛАЛТЫН ДЭЛГЭЦ */
+/* ===================================
+   ЯЛАЛТЫН САЛЮТЫН ДЭЛГЭЦ
+=================================== */
+
 .victory-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
+
   background: rgba(8, 15, 45, 0.93);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
 }
 
@@ -240,68 +327,104 @@ body {
   display: none;
 }
 
+/* САЛЮТЫН CANVAS */
+
 #fireworksCanvas {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   pointer-events: none;
 }
+
+/* ЯЛАЛТЫН БИЧИГ */
 
 .victory-content {
   position: relative;
   z-index: 2;
+
   width: min(94%, 850px);
   padding: 24px;
+
   pointer-events: none;
 }
 
+/* ЦОМ */
+
 .victory-trophy {
   font-size: clamp(75px, 13vw, 130px);
-  animation: trophyBounce 1.1s ease-in-out infinite alternate;
+
+  animation: trophyBounce
+    1.1s ease-in-out infinite alternate;
 }
+
+/* БАГ ЯЛЛАА */
 
 .victory-title {
   font-family: 'Segoe UI', Arial, sans-serif;
+
   font-size: clamp(40px, 8vw, 85px);
   font-weight: 900;
+
   color: #ffd700;
   line-height: 1.2;
+
   text-shadow:
     0 0 15px rgba(255, 215, 0, 0.9),
     0 0 35px rgba(255, 165, 0, 0.7);
+
   animation: victoryPop 0.7s ease-out both;
 }
 
+/* БАЯР ХҮРГЭЕ */
+
 .victory-subtitle {
   margin-top: 20px;
+
+  font-family: 'Segoe UI', Arial, sans-serif;
   font-size: clamp(23px, 4vw, 38px);
   font-weight: 800;
+
   color: #ffffff;
 }
 
+/* ТОГЛООМ РУУ БУЦАХ */
+
 #victoryCloseBtn {
   pointer-events: auto;
+
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   margin-top: 32px;
   padding: 15px 30px;
+
   border: none;
   border-radius: 14px;
+
   background: #ffffff;
   color: #1e3a8a;
+
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 20px;
   font-weight: 800;
+
   cursor: pointer;
 }
+
+/* ===================================
+   ЯЛАЛТЫН ХӨДӨЛГӨӨН
+=================================== */
 
 @keyframes victoryPop {
   from {
     opacity: 0;
     transform: scale(0.4);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -312,104 +435,17 @@ body {
   from {
     transform: translateY(0) rotate(-5deg);
   }
+
   to {
     transform: translateY(-15px) rotate(5deg);
   }
 }
 
-/* ГАР УТАС */
+/* ===================================
+   ГАР УТАСНЫ ТОХИРГОО
+=================================== */
+
 @media (max-width: 700px) {
-  body {
-    padding: 10px 8px;
-  }
-
-  #ruleLabel {
-    font-size: 25px;
-  }
-
-  #questionText {
-    font-size: 25px;
-    min-height: 45px;
-    margin: 8px 0 12px;
-  }
-
-  .game-area {
-    height: 210px;
-  }
-
-  #ropeGroup {
-    width: 72%;
-  }
-
-  .tug-image {
-    max-height: 185px;
-  }
-
-  .teams {
-    gap: 8px;
-  }
-
-  .team-panel {
-    padding: 8px;
-  }
-
-  .team-panel h2 {
-    font-size: 17px;
-    margin-bottom: 8px;
-  }
-
-  .answers {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .answer-btn {
-    font-size: 20px;
-    min-height: 58px;
-    padding: 8px 4px;
-  }
-
-  #restartBtn {
-    font-size: 18px;
-    min-height: 50px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .victory-trophy,
-  .victory-title {
-    animation: none;
-  }
-}
-
-/* Хүүхдүүдийн зургийг бүтнээр харуулах */
-#ropeGroup {
-  width: min(85%, 850px);
-  max-height: 100%;
-}
-
-.tug-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-  mix-blend-mode: normal;
-}
-
-/* Зургийг талбайн голд байрлуулах */
-.game-area {
-  display: block;
-  overflow: hidden;
-}
-
-/* УТСАН ДЭЭР БАГТАХ ТОХИРГОО */
-@media (max-width: 700px) {
-  html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
 
   body {
     padding: 8px 6px;
@@ -432,16 +468,20 @@ body {
     margin: 6px 0 10px;
   }
 
+  /* ОЛС ТАТАЛТЫН ЗУРАГ */
+
   .game-area {
     width: 100%;
     height: 175px;
+
     margin-bottom: 10px;
+
     border-width: 2px;
     border-radius: 12px;
   }
 
   #ropeGroup {
-    width: 70%;
+    width: 72%;
   }
 
   .tug-image {
@@ -451,15 +491,21 @@ body {
     object-fit: contain;
   }
 
+  /* ХОЁР БАГ ЗЭРЭГЦЭЖ ХАРАГДАНА */
+
   .teams {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
     gap: 6px;
   }
 
   .team-panel {
     min-width: 0;
     padding: 7px 5px;
+
     border-radius: 10px;
     border-width: 1px;
   }
@@ -469,6 +515,8 @@ body {
     margin: 0 0 7px;
     padding-bottom: 5px;
   }
+
+  /* ХАРИУЛТУУД НЭГ БАГАНААР */
 
   .answers {
     display: grid;
@@ -480,9 +528,12 @@ body {
     width: 100%;
     min-width: 0;
     min-height: 43px;
+
     padding: 5px 2px;
+
     font-size: 17px;
     font-weight: 700;
+
     border-width: 2px;
     border-radius: 9px;
   }
@@ -493,6 +544,8 @@ body {
     font-size: 16px;
   }
 
+  /* ЯЛАЛТЫН ДЭЛГЭЦ */
+
   .victory-title {
     font-size: 36px;
   }
@@ -500,10 +553,23 @@ body {
   .victory-trophy {
     font-size: 75px;
   }
+
+  .victory-subtitle {
+    font-size: 24px;
+  }
+
+  #victoryCloseBtn {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
 }
 
-/* ЖИЖИГ УТАС */
+/* ===================================
+   ЖИЖИГ УТАС
+=================================== */
+
 @media (max-width: 380px) {
+
   #ruleLabel {
     font-size: 19px;
   }
@@ -526,10 +592,14 @@ body {
   }
 }
 
-/* ШИНЭ ЗУРАГ ДОТРОО ШУГАМТАЙ ТУЛ
-   САЙТЫН ДАВХАР ШУГАМЫГ НУУХ */
-.center-line {
-  display: none;
+/* ===================================
+   ХӨДӨЛГӨӨН БАГАСГАХ ТОХИРГОО
+=================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .victory-trophy,
+  .victory-title {
+    animation: none;
+  }
 }
-
-
