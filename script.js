@@ -1,461 +1,368 @@
 
 const questions = [
   {
-    question: "'Оч + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["очё", "очъё", "очье", "очиё"],
-    correctAnswer: "очъё"
-  },
-  {
-    question: "'Үнс + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["үнсе", "үнъе", "үнсье", "үнсъе"],
-    correctAnswer: "үнсье"
-  },
-  {
-    question: "'Уя + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["уяъя", "уяя", "уяье", "уяъё"],
-    correctAnswer: "уяя"
-  },
-  {
     question: "'Мэд + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["мэдэе", "мэдье", "мэдъе", "мэдие"],
+    options: ["мэдье", "мэдъе", "мэдээ", "мэдие"],
     correctAnswer: "мэдье"
   },
   {
-    question: "'Хичээ + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хичээье", "хичээе", "хичээъе", "хичээьеэ"],
-    correctAnswer: "хичээе"
+    question: "'Үз + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["үзье", "үзъе", "үзээ", "үзие"],
+    correctAnswer: "үзье"
   },
   {
     question: "'Хий + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хийье", "хийъе", "хийе", "хийэе"],
+    options: ["хийе", "хийье", "хийъе", "хие"],
     correctAnswer: "хийе"
   },
   {
-    question: "'Боль + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["больё", "болъё", "болё", "болье"],
-    correctAnswer: "больё"
+    question: "'Яв + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["явя", "явъя", "явья", "явая"],
+    correctAnswer: "явъя"
   },
   {
-    question: "'Холь + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["холъё", "хольё", "холье", "холё"],
-    correctAnswer: "хольё"
+    question: "'Ав + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["авя", "авъя", "авья", "авая"],
+    correctAnswer: "авъя"
   },
   {
-    question: "'Хорь + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хоръё", "хорё", "хорьё", "хорье"],
-    correctAnswer: "хорьё"
+    question: "'Бод + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["бодё", "бодьё", "бодъё", "бодое"],
+    correctAnswer: "бодъё"
   },
   {
-    question: "'Харь + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["харъя", "харья", "харьъя", "харье"],
-    correctAnswer: "харья"
+    question: "'Ол + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["олё", "ольё", "олъё", "олое"],
+    correctAnswer: "олъё"
   },
   {
-    question: "'Бууд + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["буудая", "буудья", "буудъя", "буудъё"],
-    correctAnswer: "буудъя"
+    question: "'Хар + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["харя", "харъя", "харья", "харая"],
+    correctAnswer: "харъя"
   },
   {
-    question: "'Алх + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["алхя", "алхья", "алхъя", "алхъё"],
-    correctAnswer: "алхъя"
+    question: "'Сур + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["суря", "суръя", "сурья", "сурая"],
+    correctAnswer: "суръя"
   },
   {
-    question: "'Мөлх + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["мөлхе", "мөлхье", "мөлхъе", "мөлхие"],
-    correctAnswer: "мөлхье"
+    question: "'Унш + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["уншя", "уншъя", "уншья", "уншая"],
+    correctAnswer: "уншъя"
   },
   {
-    question: "'Хүлээ + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хүлээье", "хүлээе", "хүлээъе", "хүлэе"],
-    correctAnswer: "хүлээе"
+    question: "'Ир + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["ире", "ирье", "иръе", "ирээ"],
+    correctAnswer: "ирье"
   },
   {
-    question: "'Нуу + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["нуъя", "нуья", "нууя", "нууъя"],
-    correctAnswer: "нууя"
-  },
-  {
-    question: "'Нээ + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["нээе", "нээье", "нээъе", "нэе"],
-    correctAnswer: "нээе"
-  },
-  {
-    question: "'Хаа + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хаъя", "хаая", "хаья", "хааъя"],
-    correctAnswer: "хаая"
-  },
-  {
-    question: "'Нүү + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["нүүье", "нүүе", "нүүъе", "нүе"],
-    correctAnswer: "нүүе"
-  },
-  {
-    question: "'Буу + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["буъя", "буья", "бууя", "бууъя"],
-    correctAnswer: "бууя"
+    question: "'Өг + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["өгё", "өгьё", "өгъё", "өгөө"],
+    correctAnswer: "өгье"
   },
   {
     question: "'Суу + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["суъя", "сууя", "сууъя", "сууье"],
+    options: ["сууя", "суужя", "суулья", "сууъя"],
     correctAnswer: "сууя"
   },
   {
-    question: "'Туу + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["туъя", "тууъя", "тууя", "туья"],
-    correctAnswer: "тууя"
+    question: "'Уу + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["ууя", "уъя", "уья", "ууъя"],
+    correctAnswer: "ууя"
   },
   {
-    question: "'Урууд + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["уруудя", "уруудъя", "уруудья", "уруудъё"],
-    correctAnswer: "уруудъя"
+    question: "'Дуул + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["дууля", "дуулъя", "дуулья", "дуулай"],
+    correctAnswer: "дуулъя"
   },
   {
-    question: "'Өнхөр + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["өнхөре", "өнхөръе", "өнхөрье", "өнхрье"],
-    correctAnswer: "өнхөрье"
+    question: "'Тат + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["татя", "татъя", "татья", "татая"],
+    correctAnswer: "татъя"
   },
   {
-    question: "'Өлгийд + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["өлгийде", "өлгийдье", "өлгийдъе", "өлгийдее"],
-    correctAnswer: "өлгийдье"
+    question: "'Бич + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["биче", "бичьe", "бичье", "бичъе"],
+    correctAnswer: "бичье"
   },
   {
-    question: "'Оё + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["оёъё", "оёё", "оёье", "оёо"],
-    correctAnswer: "оёё"
+    question: "'Хэл + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["хэле", "хэлье", "хэлъе", "хэлээ"],
+    correctAnswer: "хэлье"
+  },
+  {
+    question: "'Хүлээ + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["хүлээе", "хүлээье", "хүлээъе", "хүлэе"],
+    correctAnswer: "хүлээе"
+  },
+  {
+    question: "'Бай + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["байя", "байъя", "байья", "бая"],
+    correctAnswer: "байя"
+  },
+  {
+    question: "'Ор + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["орё", "орьё", "оръё", "орое"],
+    correctAnswer: "оръё"
+  },
+  {
+    question: "'Бос + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["босё", "босьё", "босъё", "босое"],
+    correctAnswer: "босъё"
+  },
+  {
+    question: "'Хүр + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["хүре", "хүрье", "хүръе", "хүрээ"],
+    correctAnswer: "хүрье"
+  },
+  {
+    question: "'Тэмүүл + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["тэмүүле", "тэмүүлье", "тэмүүлъе", "тэмүүлээ"],
+    correctAnswer: "тэмүүлье"
+  },
+  {
+    question: "'Барь + я' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["барья", "баръя", "бария", "барьъя"],
+    correctAnswer: "барья"
   }
 ];
-
-// ===================================
-// ТОГЛООМЫН ҮНДСЭН ХУВЬСАГЧИД
-// ===================================
-
-let currentQuestion = 0;
-let ropeOffset = 0;
-
-let leftScore = 0;
-let rightScore = 0;
-
-let answers = {
-  left: null,
-  right: null
-};
-
-let gameOver = false;
-let roundLocked = false;
-
-const WIN_LIMIT = 180;
-const PULL_STEP = 18;
 
 // HTML элементүүд
 const questionText = document.getElementById("questionText");
 const statusText = document.getElementById("statusText");
-
 const leftAnswers = document.getElementById("leftAnswers");
 const rightAnswers = document.getElementById("rightAnswers");
-
 const ropeGroup = document.getElementById("ropeGroup");
 const restartBtn = document.getElementById("restartBtn");
 
-// ===================================
-// САНАМСАРГҮЙ ДАРААЛАЛ
-// ===================================
+// Тоглоомын тохиргоо
+const ROPE_STEP = 35;
+const WIN_DISTANCE = 175;
+const NEXT_DELAY = 1200;
 
-function shuffle(array) {
-  const result = [...array];
+let gameQuestions = [];
+let questionIndex = 0;
+let ropeOffset = 0;
+let leftScore = 0;
+let rightScore = 0;
+let leftAnswered = false;
+let rightAnswered = false;
+let leftCorrect = false;
+let rightCorrect = false;
+let gameOver = false;
+let nextTimer = null;
+
+// Асуултуудыг холих
+function shuffle(items) {
+  const result = [...items];
 
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-
-    [result[i], result[j]] =
-      [result[j], result[i]];
+    [result[i], result[j]] = [result[j], result[i]];
   }
 
   return result;
 }
 
-let gameQuestions = [];
+// Олс хөдөлгөх
+function moveRope() {
+  ropeGroup.style.transition = "transform 0.6s ease";
+  ropeGroup.style.transform =
+    `translateX(${ropeOffset}px)`;
+}
 
-// ===================================
-// АСУУЛТ ХАРУУЛАХ
-// ===================================
+// Хариултын товч үүсгэх
+function createButtons(container, options, team) {
+  container.innerHTML = "";
 
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "answer-btn";
+    button.textContent = option;
+
+    button.addEventListener("click", () => {
+      chooseAnswer(team, option);
+    });
+
+    container.appendChild(button);
+  });
+}
+
+// Асуулт харуулах
 function showQuestion() {
-
-  if (gameOver) return;
-
-  if (currentQuestion >= gameQuestions.length) {
+  if (questionIndex >= gameQuestions.length) {
     finishGame();
     return;
   }
 
-  answers = {
-    left: null,
-    right: null
-  };
+  leftAnswered = false;
+  rightAnswered = false;
+  leftCorrect = false;
+  rightCorrect = false;
 
-  roundLocked = false;
+  const question = gameQuestions[questionIndex];
 
-  const q = gameQuestions[currentQuestion];
+  questionText.textContent = question.question;
+  statusText.textContent = "";
 
-  questionText.textContent =
-    "Асуулт " + (currentQuestion + 1) +
-    "/" + gameQuestions.length + ": " + q.question;
+  createButtons(
+    leftAnswers,
+    question.options,
+    "left"
+  );
 
-  statusText.textContent =
-    "Хоёр баг хариултаа сонгоно уу!";
-
-  createButtons(leftAnswers, "left", q);
-  createButtons(rightAnswers, "right", q);
+  createButtons(
+    rightAnswers,
+    question.options,
+    "right"
+  );
 }
 
-// ===================================
-// ХАРИУЛТЫН ТОВЧ ҮҮСГЭХ
-// ===================================
-
-function createButtons(container, team, question) {
-
-  container.innerHTML = "";
-
-  const options = shuffle(question.options);
-
-  options.forEach(option => {
-
-    const button = document.createElement("button");
-
-    button.textContent = option;
-
-    button.addEventListener("click", function () {
-
-      selectAnswer(team, option, button);
-
-    });
-
-    container.appendChild(button);
-
-  });
-}
-
-// ===================================
-// ХАРИУЛТ ШАЛГАХ
-// ===================================
-
-function selectAnswer(team, option, selectedButton) {
-
-  if (gameOver || roundLocked) return;
-
-  if (answers[team] !== null) return;
-
-  const q = gameQuestions[currentQuestion];
-
-  const isCorrect = option === q.correctAnswer;
-
-  answers[team] = isCorrect;
-
-  const container =
-    team === "left" ? leftAnswers : rightAnswers;
-
+// Зөв буруу хариултыг өнгөөр ялгах
+function colorAnswers(container, selected, correct) {
   const buttons = container.querySelectorAll("button");
 
-  buttons.forEach(button => {
-
+  buttons.forEach((button) => {
     button.disabled = true;
 
-    if (button.textContent === q.correctAnswer) {
-      button.classList.add("correct");
+    if (button.textContent === correct) {
+      button.style.background = "#22c55e";
+      button.style.color = "#ffffff";
+      button.style.borderColor = "#16a34a";
+    } else if (button.textContent === selected) {
+      button.style.background = "#ef4444";
+      button.style.color = "#ffffff";
+      button.style.borderColor = "#dc2626";
     }
-
   });
-
-  if (!isCorrect) {
-    selectedButton.classList.add("wrong");
-  }
-
-  if (isCorrect) {
-
-    if (team === "left") {
-      leftScore++;
-    } else {
-      rightScore++;
-    }
-
-  }
-
-  const teamName =
-    team === "left" ? "Баг 1" : "Баг 2";
-
-  statusText.textContent =
-    teamName + ": " +
-    (isCorrect ? "ЗӨВ ХАРИУЛЛАА!" : "БУРУУ ХАРИУЛЛАА!") +
-    " | Оноо: " + leftScore + " : " + rightScore;
-
-  if (answers.left !== null && answers.right !== null) {
-
-    roundLocked = true;
-
-    setTimeout(resolveRound, 1200);
-
-  }
 }
 
-// ===================================
-// ОЛС ТАТАХ ҮЙЛДЭЛ
-// ===================================
-
-function resolveRound() {
-
+// Хариулт сонгох
+function chooseAnswer(team, selected) {
   if (gameOver) return;
 
-  if (answers.left === true && answers.right !== true) {
+  const question = gameQuestions[questionIndex];
+  const correct = selected === question.correctAnswer;
 
-    ropeOffset -= PULL_STEP;
+  if (team === "left") {
+    if (leftAnswered) return;
 
-    statusText.textContent =
-      "💪 БАГ 1 ОЛСЫГ ӨӨРИЙН ТАЛ РУУ ТАТЛАА!";
+    leftAnswered = true;
+    leftCorrect = correct;
 
+    if (correct) leftScore++;
+
+    colorAnswers(
+      leftAnswers,
+      selected,
+      question.correctAnswer
+    );
   }
 
-  else if (answers.right === true && answers.left !== true) {
+  if (team === "right") {
+    if (rightAnswered) return;
 
-    ropeOffset += PULL_STEP;
+    rightAnswered = true;
+    rightCorrect = correct;
 
-    statusText.textContent =
-      "💪 БАГ 2 ОЛСЫГ ӨӨРИЙН ТАЛ РУУ ТАТЛАА!";
+    if (correct) rightScore++;
 
+    colorAnswers(
+      rightAnswers,
+      selected,
+      question.correctAnswer
+    );
   }
 
-  else if (answers.left && answers.right) {
-
-    statusText.textContent =
-      "Хоёр баг хоёулаа зөв хариуллаа! Олс хөдөлсөнгүй.";
-
+  // Хоёр баг хариулсан үед олсыг хөдөлгөнө
+  if (leftAnswered && rightAnswered) {
+    resolveRound();
   }
-
-  else {
-
-    statusText.textContent =
-      "Хоёр баг хоёулаа буруу хариуллаа!";
-
-  }
-
-  // Олсны хөдөлгөөн
-  ropeGroup.style.setProperty(
-    "--rope-offset",
-    ropeOffset + "px"
-  );
-
-  // Ялагч шалгах
-  if (Math.abs(ropeOffset) >= WIN_LIMIT) {
-
-    setTimeout(finishGame, 800);
-
-    return;
-
-  }
-
-  currentQuestion++;
-
-  setTimeout(showQuestion, 1200);
-
 }
 
-// ===================================
-// ТОГЛООМЫН ЯЛАГЧ ТОДРУУЛАХ
-// ===================================
+// Нэг үеийн үр дүн
+function resolveRound() {
+  if (leftCorrect && !rightCorrect) {
+    ropeOffset -= ROPE_STEP;
+  } else if (rightCorrect && !leftCorrect) {
+    ropeOffset += ROPE_STEP;
+  }
 
+  // Хоёулаа зөв эсвэл хоёулаа буруу бол
+  // олсны байрлал өөрчлөгдөхгүй
+  moveRope();
+
+  nextTimer = setTimeout(() => {
+    nextTimer = null;
+
+    if (Math.abs(ropeOffset) >= WIN_DISTANCE) {
+      finishGame();
+      return;
+    }
+
+    questionIndex++;
+    showQuestion();
+  }, NEXT_DELAY);
+}
+
+// Тоглоом дуусгах
 function finishGame() {
-
   gameOver = true;
 
-  leftAnswers.querySelectorAll("button").forEach(button => {
-    button.disabled = true;
-  });
-
-  rightAnswers.querySelectorAll("button").forEach(button => {
-    button.disabled = true;
-  });
-
-  questionText.textContent =
-    "🏆 ТОГЛООМ ДУУСЛАА!";
-
-  let winner = "";
+  let result = "";
 
   if (ropeOffset < 0) {
-
-    winner = "🎉 БАГ 1 ЯЛЛАА! 🎉";
-
+    result = "🏆 БАГ 1 ЯЛЛАА!";
+  } else if (ropeOffset > 0) {
+    result = "🏆 БАГ 2 ЯЛЛАА!";
+  } else if (leftScore > rightScore) {
+    result = "🏆 БАГ 1 ЯЛЛАА!";
+  } else if (rightScore > leftScore) {
+    result = "🏆 БАГ 2 ЯЛЛАА!";
+  } else {
+    result = "🤝 ХОЁР БАГ ТЭНЦЛЭЭ!";
   }
 
-  else if (ropeOffset > 0) {
+  questionText.textContent = result;
+  statusText.textContent = "";
 
-    winner = "🎉 БАГ 2 ЯЛЛАА! 🎉";
-
-  }
-
-  else if (leftScore > rightScore) {
-
-    winner = "🎉 БАГ 1 ЯЛЛАА! 🎉";
-
-  }
-
-  else if (rightScore > leftScore) {
-
-    winner = "🎉 БАГ 2 ЯЛЛАА! 🎉";
-
-  }
-
-  else {
-
-    winner = "🤝 ХОЁР БАГ ТЭНЦЛЭЭ!";
-
-  }
-
-  statusText.textContent =
-    winner +
-    " | Баг 1: " + leftScore +
-    " оноо | Баг 2: " + rightScore + " оноо";
-
+  leftAnswers.innerHTML = "";
+  rightAnswers.innerHTML = "";
 }
 
-// ===================================
-// ДАХИН ТОГЛОХ
-// ===================================
-
+// Дахин тоглох
 function restartGame() {
+  if (nextTimer !== null) {
+    clearTimeout(nextTimer);
+    nextTimer = null;
+  }
 
-  currentQuestion = 0;
-
+  gameQuestions = shuffle(questions);
+  questionIndex = 0;
   ropeOffset = 0;
-
   leftScore = 0;
   rightScore = 0;
-
-  answers = {
-    left: null,
-    right: null
-  };
-
+  leftAnswered = false;
+  rightAnswered = false;
+  leftCorrect = false;
+  rightCorrect = false;
   gameOver = false;
-  roundLocked = false;
 
-  // Олсыг голд буцаах
-  ropeGroup.style.setProperty(
-    "--rope-offset",
-    "0px"
-  );
-
-  // Асуултуудыг шинэ дарааллаар эхлүүлэх
-  gameQuestions = shuffle(questions);
-
+  moveRope();
   showQuestion();
-
 }
 
-// ===================================
-// ТОГЛООМ ЭХЛҮҮЛЭХ
-// ===================================
+// Асуултын өнгө, хэмжээ
+questionText.style.color = "#e60000";
+questionText.style.fontSize = "40px";
+questionText.style.fontWeight = "900";
+questionText.style.textAlign = "center";
+questionText.style.lineHeight = "1.4";
 
+// Илүү тайлбар бичгийг нуух
+statusText.style.display = "none";
+
+// Тоглоом эхлүүлэх
 restartBtn.addEventListener("click", restartGame);
-
 restartGame();
