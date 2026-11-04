@@ -254,6 +254,42 @@ body {
     padding: 8px 4px;
   }
 
+/* Монгол Ө, Ү үсгийг зөв, цэвэр харагдуулах */
+html,
+body,
+button,
+h1,
+h2,
+div,
+span {
+  font-family: Arial, sans-serif !important;
+  font-synthesis: none;
+}
+
+/* Асуултын бичвэр */
+#questionText {
+  font-family: Arial, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: normal;
+  font-variant: normal;
+}
+
+/* Хариултын сонголтууд */
+.answer-btn {
+  font-family: Arial, sans-serif !important;
+  font-size: 29px;
+  font-weight: 700 !important;
+  letter-spacing: normal;
+  font-variant: normal;
+}
+
+/* Гар утас */
+@media (max-width: 700px) {
+  .answer-btn {
+    font-size: 23px;
+  }
+}
+
   #restartBtn {
     font-size: 20px;
   }
