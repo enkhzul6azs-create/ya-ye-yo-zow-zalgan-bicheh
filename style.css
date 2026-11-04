@@ -381,3 +381,25 @@ body {
     animation: none;
   }
 }
+
+/* Хүүхдүүдийн зургийг бүтнээр харуулах */
+#ropeGroup {
+  width: min(85%, 850px);
+  max-height: 100%;
+}
+
+.tug-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+/* Зургийг талбайн голд байрлуулах */
+.game-area {
+  display: block;
+  overflow: hidden;
+}
+
