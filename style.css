@@ -1,35 +1,267 @@
-* { box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #f1f5f9; margin: 0; padding: 10px 16px; color: #0f172a; }
-#ruleLabel { font-size: 32px; font-weight: 900; color: #1e3a8a; margin: 0 0 6px; }
-#questionText { font-size: 28px; font-weight: 800; color: #1e293b; min-height: 38px; margin: 6px 0; }
-#statusText { font-size: 22px; font-weight: bold; min-height: 28px; margin: 4px 0 10px; }
-.game-area { position: relative; height: 260px; max-width: 960px; margin: 0 auto 16px; background: #fff; border: 4px solid #cbd5e1; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
-.center-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; transform: translateX(-50%); background: repeating-linear-gradient(to bottom, #ef4444 0px, #ef4444 14px, transparent 14px, transparent 24px); z-index: 10; pointer-events: none; }
-#ropeGroup { position: absolute; left: 50%; top: 50%; --rope-offset: 0px; --ribbon-correction: 0px; transform: translate(calc(-50% + var(--ribbon-correction) + var(--rope-offset)), -50%); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 2; display: flex; align-items: center; justify-content: center; width: max-content; }
-.tug-image { display: block; height: 230px; width: auto; max-width: none; pointer-events: none; user-select: none; mix-blend-mode: multiply; }
-.teams { display: flex; justify-content: center; gap: 16px; max-width: 960px; margin: 0 auto; }
-.teams > div { flex: 1; min-width: 0; background: #fff; padding: 12px 14px; border-radius: 16px; border: 2px solid #e2e8f0; box-shadow: 0 4px 14px rgba(15,23,42,0.05); }
-.teams h3 { margin: 0 0 10px; font-size: 22px; font-weight: 800; color: #1e293b; border-bottom: 2px solid #f1f5f9; padding-bottom: 6px; }
-#leftAnswers, #rightAnswers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 46px; font-size: 20px; font-weight: 700; padding: 8px 12px; margin: 0; border-radius: 12px; border: 2px solid #cbd5e1; background: #f8fafc; color: #1e293b; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.04); transition: all 0.15s ease-in-out; }
-button:hover:not(:disabled) { background: #e2e8f0; border-color: #94a3b8; transform: translateY(-2px); }
-button:active:not(:disabled) { transform: translateY(0); }
-button:disabled { cursor: not-allowed; opacity: 0.6; }
-.correct { background: #16a34a !important; border-color: #15803d !important; color: #fff !important; opacity: 1 !important; }
-.wrong { background: #dc2626 !important; border-color: #b91c1c !important; color: #fff !important; opacity: 1 !important; }
-#restartBtn { display: inline-flex; width: auto; min-width: 190px; margin-top: 10px; padding: 10px 26px; font-size: 18px; font-weight: 800; background: #2563eb; color: #fff; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(37,99,235,0.28); }
-#restartBtn:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 15px 16px;
+  color: #0f172a;
+}
+
+/* Дүрмийн гарчиг */
+#ruleLabel {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1e3a8a;
+  margin: 0 0 10px;
+}
+
+/* Асуултын хэсэг */
+#questionText {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1e293b;
+  min-height: 55px;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+/* Зөв, буруу хариултын мэдээлэл */
+#statusText {
+  font-size: 26px;
+  font-weight: 900;
+  min-height: 36px;
+  margin: 8px 0 14px;
+}
+
+/* Олс таталтын талбай */
+.game-area {
+  position: relative;
+  height: 280px;
+  max-width: 960px;
+  margin: 0 auto 20px;
+  background: #fff;
+  border: 4px solid #cbd5e1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* Голын шугам */
+.center-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    #ef4444 0px,
+    #ef4444 14px,
+    transparent 14px,
+    transparent 24px
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Олсны зураг */
+#ropeGroup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  --rope-offset: 0px;
+  --ribbon-correction: 0px;
+  transform: translate(
+    calc(-50% + var(--ribbon-correction) + var(--rope-offset)),
+    -50%
+  );
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+.tug-image {
+  display: block;
+  height: 245px;
+  width: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: multiply;
+}
+
+/* Хоёр багийн хэсэг */
+.teams {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.teams > div {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(15,23,42,0.05);
+}
+
+/* Багийн нэр */
+.teams h3 {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #1e293b;
+  border-bottom: 3px solid #f1f5f9;
+  padding-bottom: 10px;
+}
+
+/* Хариултын байрлал */
+#leftAnswers,
+#rightAnswers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Хариултын товч */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 75px;
+  font-size: 30px;
+  font-weight: 900;
+  padding: 14px;
+  margin: 0;
+  border-radius: 16px;
+  border: 3px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: all 0.15s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Зөв хариулт */
+.correct {
+  background: #16a34a !important;
+  border-color: #15803d !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* Буруу хариулт */
+.wrong {
+  background: #dc2626 !important;
+  border-color: #b91c1c !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* Дахин эхлүүлэх товч */
+#restartBtn {
+  display: inline-flex;
+  width: auto;
+  min-width: 220px;
+  margin-top: 16px;
+  padding: 14px 28px;
+  font-size: 22px;
+  font-weight: 900;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.28);
+}
+
+#restartBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Гар утасны тохиргоо */
 @media (max-width: 700px) {
-  body { padding: 10px 8px; }
-  #ruleLabel { font-size: 25px; }
-  #questionText { font-size: 20px; }
-  #statusText { font-size: 17px; }
-  .game-area { height: 220px; }
-  .tug-image { height: 185px; }
-  .teams { gap: 8px; }
-  .teams > div { padding: 8px; }
-  .teams h3 { font-size: 16px; }
-  #leftAnswers, #rightAnswers { gap: 6px; }
-  button { font-size: 15px; padding: 6px; min-height: 42px; }
-  #restartBtn { font-size: 16px; }
+
+  body {
+    padding: 10px 8px;
+  }
+
+  #ruleLabel {
+    font-size: 26px;
+  }
+
+  #questionText {
+    font-size: 25px;
+    min-height: 45px;
+  }
+
+  #statusText {
+    font-size: 20px;
+  }
+
+  .game-area {
+    height: 220px;
+  }
+
+  .tug-image {
+    height: 185px;
+  }
+
+  .teams {
+    gap: 8px;
+  }
+
+  .teams > div {
+    padding: 8px;
+  }
+
+  .teams h3 {
+    font-size: 20px;
+  }
+
+  #leftAnswers,
+  #rightAnswers {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  button {
+    font-size: 25px;
+    min-height: 65px;
+    padding: 10px;
+  }
+
+  #restartBtn {
+    font-size: 20px;
+    min-height: 55px;
+  }
 }
