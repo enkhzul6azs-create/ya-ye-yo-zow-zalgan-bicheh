@@ -403,3 +403,133 @@ body {
   overflow: hidden;
 }
 
+/* УТСАН ДЭЭР БАГТАХ ТОХИРГОО */
+@media (max-width: 700px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    padding: 8px 6px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #ruleLabel {
+    font-size: 21px;
+    margin: 0 0 5px;
+  }
+
+  #questionText {
+    font-size: 20px;
+    line-height: 1.3;
+    min-height: 0;
+    margin: 6px 0 10px;
+  }
+
+  .game-area {
+    width: 100%;
+    height: 175px;
+    margin-bottom: 10px;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+
+  #ropeGroup {
+    width: 70%;
+  }
+
+  .tug-image {
+    width: 100%;
+    height: auto;
+    max-height: 165px;
+    object-fit: contain;
+  }
+
+  .teams {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .team-panel {
+    min-width: 0;
+    padding: 7px 5px;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+
+  .team-panel h2 {
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding-bottom: 5px;
+  }
+
+  .answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .answer-btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 5px 2px;
+    font-size: 17px;
+    font-weight: 700;
+    border-width: 2px;
+    border-radius: 9px;
+  }
+
+  #restartBtn {
+    min-height: 43px;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .victory-title {
+    font-size: 36px;
+  }
+
+  .victory-trophy {
+    font-size: 75px;
+  }
+}
+
+/* ЖИЖИГ УТАС */
+@media (max-width: 380px) {
+  #ruleLabel {
+    font-size: 19px;
+  }
+
+  #questionText {
+    font-size: 18px;
+  }
+
+  .game-area {
+    height: 145px;
+  }
+
+  .tug-image {
+    max-height: 135px;
+  }
+
+  .answer-btn {
+    font-size: 15px;
+    min-height: 40px;
+  }
+}
+
+/* ШИНЭ ЗУРАГ ДОТРОО ШУГАМТАЙ ТУЛ
+   САЙТЫН ДАВХАР ШУГАМЫГ НУУХ */
+.center-line {
+  display: none;
+}
+
+
