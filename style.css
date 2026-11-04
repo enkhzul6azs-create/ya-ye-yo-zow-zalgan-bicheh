@@ -1,36 +1,44 @@
 
 * {
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
   padding: 16px;
-  font-family: "Segoe UI", Arial, sans-serif;
   text-align: center;
   background: #f1f5f9;
   color: #0f172a;
 }
 
 .page {
+  width: 100%;
   max-width: 1020px;
   margin: 0 auto;
 }
 
 #ruleLabel {
+  margin: 0 0 12px;
+  font-family: Arial, sans-serif;
   font-size: clamp(25px, 4vw, 36px);
   font-weight: 900;
   color: #1e3a8a;
-  margin: 0 0 12px;
 }
 
 #questionText {
+  margin: 12px 0 18px;
+  min-height: 65px;
+  font-family: Arial, sans-serif;
   font-size: clamp(26px, 4vw, 40px);
   font-weight: 900;
-  color: #dc2626;
-  min-height: 65px;
-  margin: 12px 0 18px;
   line-height: 1.35;
+  color: #dc2626;
 }
 
 .sr-only {
@@ -45,18 +53,20 @@ body {
   border: 0;
 }
 
+/* Олс таталтын талбай */
 .game-area {
   position: relative;
-  height: 280px;
   width: 100%;
+  height: 280px;
   margin: 0 auto 20px;
-  background: #fff;
+  background: #ffffff;
   border: 4px solid #cbd5e1;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
+/* Талбайн голын шугам */
 .center-line {
   position: absolute;
   top: 0;
@@ -66,26 +76,27 @@ body {
   transform: translateX(-50%);
   background: repeating-linear-gradient(
     to bottom,
-    #ef4444 0 14px,
-    transparent 14px 24px
+    #ef4444 0px,
+    #ef4444 14px,
+    transparent 14px,
+    transparent 24px
   );
   z-index: 3;
   pointer-events: none;
 }
 
-/* Зураг голдоо байрлана.
-   JavaScript зөвхөн --rope-offset-ийг өөрчилнө. */
+/* Олсны зураг голдоо байрлаж хөдөлнө */
 #ropeGroup {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(78%, 780px);
+  width: min(72%, 730px);
   --rope-offset: 0px;
   transform: translate(
     calc(-50% + var(--rope-offset)),
     -50%
   );
-  transition: transform .55s ease-in-out;
+  transition: transform 0.55s ease-in-out;
   z-index: 2;
 }
 
@@ -93,12 +104,13 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 250px;
+  max-height: 240px;
   object-fit: contain;
   pointer-events: none;
   user-select: none;
 }
 
+/* Хоёр баг */
 .teams {
   display: flex;
   gap: 16px;
@@ -108,22 +120,23 @@ body {
 .team-panel {
   flex: 1;
   min-width: 0;
-  background: #fff;
   padding: 16px;
+  background: #ffffff;
   border: 2px solid #e2e8f0;
   border-radius: 18px;
-  box-shadow: 0 4px 14px rgba(15,23,42,.05);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
 }
 
 .team-panel h2 {
   margin: 0 0 14px;
+  padding-bottom: 10px;
   font-size: clamp(19px, 3vw, 28px);
   font-weight: 900;
   color: #1e293b;
   border-bottom: 3px solid #f1f5f9;
-  padding-bottom: 10px;
 }
 
+/* Хариултын товчнууд */
 .answers {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -136,16 +149,17 @@ body {
   justify-content: center;
   width: 100%;
   min-height: 72px;
+  padding: 12px 8px;
+  font-family: Arial, sans-serif;
   font-size: clamp(20px, 3vw, 29px);
   font-weight: 900;
-  padding: 12px 8px;
-  border-radius: 15px;
-  border: 3px solid #cbd5e1;
-  background: #f8fafc;
   color: #1e293b;
+  background: #f8fafc;
+  border: 3px solid #cbd5e1;
+  border-radius: 15px;
   cursor: pointer;
   overflow-wrap: anywhere;
-  transition: background .15s, border-color .15s;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .answer-btn:hover:not(:disabled) {
@@ -161,15 +175,16 @@ body {
 .answer-btn.correct {
   background: #16a34a;
   border-color: #15803d;
-  color: white;
+  color: #ffffff;
 }
 
 .answer-btn.wrong {
   background: #dc2626;
   border-color: #b91c1c;
-  color: white;
+  color: #ffffff;
 }
 
+/* Дахин тоглох */
 #restartBtn {
   display: inline-flex;
   align-items: center;
@@ -179,11 +194,12 @@ body {
   min-height: 55px;
   margin-top: 18px;
   padding: 12px 28px;
+  font-family: Arial, sans-serif;
   font-size: 22px;
   font-weight: 900;
+  color: #ffffff;
   background: #2563eb;
-  color: white;
-  border: 0;
+  border: none;
   border-radius: 14px;
   cursor: pointer;
 }
@@ -192,6 +208,7 @@ body {
   background: #1d4ed8;
 }
 
+/* Гар утас */
 @media (max-width: 700px) {
   body {
     padding: 10px 8px;
@@ -206,7 +223,7 @@ body {
   }
 
   #ropeGroup {
-    width: 76%;
+    width: 72%;
   }
 
   .tug-image {
