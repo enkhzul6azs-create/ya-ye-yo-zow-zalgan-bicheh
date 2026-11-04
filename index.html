@@ -16,7 +16,7 @@
       Асуулт ачаалж байна...
     </div>
 
-    <div id="statusText" class="sr-only" aria-live="polite"></div>
+    <div id="statusText" class="sr-only"></div>
 
     <div class="game-area">
       <div class="center-line"></div>
@@ -41,7 +41,22 @@
       </section>
     </div>
 
-    <button id="restartBtn" type="button">Дахин тоглох</button>
+    <button id="restartBtn" type="button">
+      Дахин тоглох
+    </button>
   </main>
+
+  <!-- ЯЛАЛТЫН ЭФФЕКТ -->
+  <div id="victoryOverlay" class="victory-overlay" hidden>
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="victory-content">
+      <div class="victory-trophy">🏆</div>
+      <div id="victoryTitle" class="victory-title"></div>
+      <div class="victory-subtitle">БАЯР ХҮРГЭЕ! 🎉</div>
+      <button id="victoryCloseBtn" type="button">
+        Тоглоом руу буцах
+      </button>
+    </div>
+  </div>
 </body>
 </html>
