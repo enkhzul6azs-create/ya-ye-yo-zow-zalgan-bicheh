@@ -1,38 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Олс таталт - Я, Е, Ё зөв залган бичих</title>
+  <title>Олс таталт – Я, Е, Ё зөв залган бичих</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="ruleLabel">Я, Е, Ё зөв залган бичих</div>
-  <div id="questionText">Асуулт ачаалж байна...</div>
-  <div id="statusText"></div>
+  <main class="page">
+    <h1 id="ruleLabel">Я, Е, Ё зөв залган бичих</h1>
 
-  <div class="game-area">
-    <div class="center-line"></div>
-    <div id="ropeGroup">
-      <img src="image.png" alt="Олс татаж буй хоёр баг" class="tug-image">
+    <div id="questionText" aria-live="polite">
+      Асуулт ачаалж байна...
     </div>
-  </div>
+    <div id="statusText" class="sr-only" aria-live="polite"></div>
 
-  <div class="teams">
-    <div>
-      <h3>Баг 1 (Зүүн)</h3>
-      <div id="leftAnswers"></div>
+    <div class="game-area">
+      <div class="center-line"></div>
+      <div id="ropeGroup">
+        <img src="image.png" alt="Олс татаж буй хоёр баг" class="tug-image">
+      </div>
     </div>
-    <div>
-      <h3>Баг 2 (Баруун)</h3>
-      <div id="rightAnswers"></div>
+
+    <div class="teams">
+      <section class="team-panel">
+        <h2>Баг 1 (Зүүн)</h2>
+        <div id="leftAnswers" class="answers"></div>
+      </section>
+
+      <section class="team-panel">
+        <h2>Баг 2 (Баруун)</h2>
+        <div id="rightAnswers" class="answers"></div>
+      </section>
     </div>
-  </div>
 
-  <div>
-    <button id="restartBtn">Дахин тоглох</button>
-  </div>
-
-  <script src="script.js"></script>
+    <button id="restartBtn" type="button">Дахин тоглох</button>
+  </main>
 </body>
 </html>
