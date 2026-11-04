@@ -32,7 +32,7 @@ body {
   margin: 0 0 8px;
 }
 
-/* АСУУЛТ - ТОМ УЛААН */
+/* АСУУЛТ */
 #questionText {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 36px;
@@ -44,8 +44,7 @@ body {
   letter-spacing: normal;
 }
 
-/* МЭДЭГДЛИЙГ НУУХ */
-#statusText {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -70,7 +69,7 @@ body {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
-/* ГОЛЫН УЛААН ТАСАРХАЙ ШУГАМ */
+/* ГОЛЫН УЛААН ШУГАМ */
 .center-line {
   position: absolute;
   top: 0;
@@ -89,15 +88,12 @@ body {
   pointer-events: none;
 }
 
-/* ХҮҮХДҮҮД БА ОЛСНЫ ХӨДӨЛГӨӨН */
+/* ОЛСНЫ ХӨДӨЛГӨӨН */
 #ropeGroup {
   position: absolute;
   left: 50%;
   top: 50%;
-
   width: min(72%, 730px);
-
-  /* JavaScript-ээс удирдах утга */
   --rope-offset: 0px;
 
   transform: translate(
@@ -106,7 +102,6 @@ body {
   );
 
   transition: transform 0.55s ease-in-out;
-
   z-index: 2;
 
   display: flex;
@@ -114,7 +109,6 @@ body {
   justify-content: center;
 }
 
-/* ОЛС ТАТАЖ БУЙ ХҮҮХДҮҮДИЙН ЗУРАГ */
 .tug-image {
   display: block;
   width: 100%;
@@ -126,7 +120,7 @@ body {
   mix-blend-mode: multiply;
 }
 
-/* ХОЁР БАГИЙН ХЭСЭГ */
+/* ХОЁР БАГ */
 .teams {
   display: flex;
   justify-content: center;
@@ -135,7 +129,6 @@ body {
   margin: 0 auto;
 }
 
-/* БАГ ТУС БҮРИЙН ХҮРЭЭ */
 .team-panel {
   flex: 1;
   min-width: 0;
@@ -146,7 +139,6 @@ body {
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
 }
 
-/* БАГИЙН НЭР */
 .team-panel h2 {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0 0 10px;
@@ -157,94 +149,74 @@ body {
   padding-bottom: 8px;
 }
 
-/* ХАРИУЛТЫН СОНГОЛТ */
+/* ХАРИУЛТУУД */
 .answers {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-/* ХАРИУЛТЫН ТОВЧЛУУР */
 .answer-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 65px;
-
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 26px;
   font-weight: 700;
-
   padding: 10px;
   margin: 0;
-
   border-radius: 14px;
   border: 3px solid #cbd5e1;
-
   background: #f8fafc;
   color: #1e293b;
-
   cursor: pointer;
   overflow-wrap: anywhere;
-
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
+  transition: background 0.15s, border-color 0.15s;
 }
 
-/* ХУЛГАНА ОЧИХ ҮЕД */
 .answer-btn:hover:not(:disabled) {
   background: #e2e8f0;
   border-color: #94a3b8;
 }
 
-/* ХАРИУЛСНЫ ДАРАА */
 .answer-btn:disabled {
   cursor: default;
   opacity: 1;
 }
 
-/* ЗӨВ ХАРИУЛТ */
 .answer-btn.correct {
   background: #16a34a;
   border-color: #15803d;
   color: #ffffff;
 }
 
-/* БУРУУ ХАРИУЛТ */
 .answer-btn.wrong {
   background: #dc2626;
   border-color: #b91c1c;
   color: #ffffff;
 }
 
-/* ДАХИН ТОГЛОХ ТОВЧЛУУР */
+/* ДАХИН ТОГЛОХ */
 #restartBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: auto;
   min-width: 190px;
   min-height: 55px;
-
   margin-top: 16px;
   padding: 10px 26px;
-
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 20px;
   font-weight: 800;
-
   background: #2563eb;
   color: #ffffff;
-
   border: none;
   border-radius: 12px;
   cursor: pointer;
-
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
 }
 
@@ -252,9 +224,101 @@ body {
   background: #1d4ed8;
 }
 
-/* ЖИЖИГ ДЭЛГЭЦИЙН ТОХИРГОО */
-@media (max-width: 700px) {
+/* ЯЛАЛТЫН ДЭЛГЭЦ */
+.victory-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 15, 45, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.victory-overlay[hidden] {
+  display: none;
+}
+
+#fireworksCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.victory-content {
+  position: relative;
+  z-index: 2;
+  width: min(94%, 850px);
+  padding: 24px;
+  pointer-events: none;
+}
+
+.victory-trophy {
+  font-size: clamp(75px, 13vw, 130px);
+  animation: trophyBounce 1.1s ease-in-out infinite alternate;
+}
+
+.victory-title {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(40px, 8vw, 85px);
+  font-weight: 900;
+  color: #ffd700;
+  line-height: 1.2;
+  text-shadow:
+    0 0 15px rgba(255, 215, 0, 0.9),
+    0 0 35px rgba(255, 165, 0, 0.7);
+  animation: victoryPop 0.7s ease-out both;
+}
+
+.victory-subtitle {
+  margin-top: 20px;
+  font-size: clamp(23px, 4vw, 38px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+#victoryCloseBtn {
+  pointer-events: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@keyframes victoryPop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes trophyBounce {
+  from {
+    transform: translateY(0) rotate(-5deg);
+  }
+  to {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* ГАР УТАС */
+@media (max-width: 700px) {
   body {
     padding: 10px 8px;
   }
@@ -308,5 +372,12 @@ body {
   #restartBtn {
     font-size: 18px;
     min-height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .victory-trophy,
+  .victory-title {
+    animation: none;
   }
 }
