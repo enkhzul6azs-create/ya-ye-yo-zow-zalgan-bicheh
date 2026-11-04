@@ -17,47 +17,47 @@ const questions = [
   },
   {
     question: "'Яв + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["явя", "явъя", "явья", "явая"],
+    options: ["явъя", "явя", "явья", "явая"],
     correctAnswer: "явъя"
   },
   {
     question: "'Ав + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["авя", "авъя", "авья", "авая"],
+    options: ["авъя", "авя", "авья", "авая"],
     correctAnswer: "авъя"
   },
   {
     question: "'Бод + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["бодё", "бодьё", "бодъё", "бодое"],
+    options: ["бодъё", "бодё", "бодьё", "бодое"],
     correctAnswer: "бодъё"
   },
   {
     question: "'Ол + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["олё", "ольё", "олъё", "олое"],
+    options: ["олъё", "олё", "ольё", "олое"],
     correctAnswer: "олъё"
   },
   {
     question: "'Хар + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["харя", "харъя", "харья", "харая"],
+    options: ["харъя", "харя", "харья", "харая"],
     correctAnswer: "харъя"
   },
   {
     question: "'Сур + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["суря", "суръя", "сурья", "сурая"],
+    options: ["суръя", "суря", "сурья", "сурая"],
     correctAnswer: "суръя"
   },
   {
     question: "'Унш + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["уншя", "уншъя", "уншья", "уншая"],
+    options: ["уншъя", "уншя", "уншья", "уншая"],
     correctAnswer: "уншъя"
   },
   {
     question: "'Ир + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["ире", "ирье", "иръе", "ирээ"],
+    options: ["ирье", "ире", "иръе", "ирээ"],
     correctAnswer: "ирье"
   },
   {
-    question: "'Өг + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["өгё", "өгьё", "өгъё", "өгөө"],
+    question: "'Өг + е' нийлбэрийг зөв бичсэн нь аль вэ?",
+    options: ["өгье", "өгөе", "өгъе", "өгие"],
     correctAnswer: "өгье"
   },
   {
@@ -72,22 +72,22 @@ const questions = [
   },
   {
     question: "'Дуул + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["дууля", "дуулъя", "дуулья", "дуулай"],
+    options: ["дуулъя", "дууля", "дуулья", "дуулай"],
     correctAnswer: "дуулъя"
   },
   {
     question: "'Тат + я' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["татя", "татъя", "татья", "татая"],
+    options: ["татъя", "татя", "татья", "татая"],
     correctAnswer: "татъя"
   },
   {
     question: "'Бич + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["биче", "бичьe", "бичье", "бичъе"],
+    options: ["бичье", "биче", "бичъе", "бичээ"],
     correctAnswer: "бичье"
   },
   {
     question: "'Хэл + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хэле", "хэлье", "хэлъе", "хэлээ"],
+    options: ["хэлье", "хэле", "хэлъе", "хэлээ"],
     correctAnswer: "хэлье"
   },
   {
@@ -102,22 +102,22 @@ const questions = [
   },
   {
     question: "'Ор + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["орё", "орьё", "оръё", "орое"],
+    options: ["оръё", "орё", "орьё", "орое"],
     correctAnswer: "оръё"
   },
   {
     question: "'Бос + ё' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["босё", "босьё", "босъё", "босое"],
+    options: ["босъё", "босё", "босьё", "босое"],
     correctAnswer: "босъё"
   },
   {
     question: "'Хүр + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["хүре", "хүрье", "хүръе", "хүрээ"],
+    options: ["хүрье", "хүре", "хүръе", "хүрээ"],
     correctAnswer: "хүрье"
   },
   {
     question: "'Тэмүүл + е' нийлбэрийг зөв бичсэн нь аль вэ?",
-    options: ["тэмүүле", "тэмүүлье", "тэмүүлъе", "тэмүүлээ"],
+    options: ["тэмүүлье", "тэмүүле", "тэмүүлъе", "тэмүүлээ"],
     correctAnswer: "тэмүүлье"
   },
   {
@@ -135,9 +135,9 @@ const rightAnswers = document.getElementById("rightAnswers");
 const ropeGroup = document.getElementById("ropeGroup");
 const restartBtn = document.getElementById("restartBtn");
 
-// Тоглоомын тохиргоо
-const ROPE_STEP = 35;
-const WIN_DISTANCE = 175;
+// Тохиргоо
+const ROPE_STEP = 12;
+const WIN_DISTANCE = 60;
 const NEXT_DELAY = 1200;
 
 let gameQuestions = [];
@@ -145,6 +145,7 @@ let questionIndex = 0;
 let ropeOffset = 0;
 let leftScore = 0;
 let rightScore = 0;
+
 let leftAnswered = false;
 let rightAnswered = false;
 let leftCorrect = false;
@@ -164,14 +165,13 @@ function shuffle(items) {
   return result;
 }
 
-// Олс хөдөлгөх
+// Олсны байрлал
 function moveRope() {
   ropeGroup.style.transition = "transform 0.6s ease";
-  ropeGroup.style.transform =
-    `translateX(${ropeOffset}px)`;
+  ropeGroup.style.transform = `translateX(${ropeOffset}px)`;
 }
 
-// Хариултын товч үүсгэх
+// Товч үүсгэх
 function createButtons(container, options, team) {
   container.innerHTML = "";
 
@@ -206,20 +206,13 @@ function showQuestion() {
   questionText.textContent = question.question;
   statusText.textContent = "";
 
-  createButtons(
-    leftAnswers,
-    question.options,
-    "left"
-  );
+  const options = shuffle(question.options);
 
-  createButtons(
-    rightAnswers,
-    question.options,
-    "right"
-  );
+  createButtons(leftAnswers, options, "left");
+  createButtons(rightAnswers, options, "right");
 }
 
-// Зөв буруу хариултыг өнгөөр ялгах
+// Сонгосон хариултыг өнгөөр ялгах
 function colorAnswers(container, selected, correct) {
   const buttons = container.querySelectorAll("button");
 
@@ -227,11 +220,11 @@ function colorAnswers(container, selected, correct) {
     button.disabled = true;
 
     if (button.textContent === correct) {
-      button.style.background = "#22c55e";
+      button.style.backgroundColor = "#22c55e";
       button.style.color = "#ffffff";
       button.style.borderColor = "#16a34a";
     } else if (button.textContent === selected) {
-      button.style.background = "#ef4444";
+      button.style.backgroundColor = "#ef4444";
       button.style.color = "#ffffff";
       button.style.borderColor = "#dc2626";
     }
@@ -240,7 +233,7 @@ function colorAnswers(container, selected, correct) {
 
 // Хариулт сонгох
 function chooseAnswer(team, selected) {
-  if (gameOver) return;
+  if (gameOver || nextTimer !== null) return;
 
   const question = gameQuestions[questionIndex];
   const correct = selected === question.correctAnswer;
@@ -258,9 +251,7 @@ function chooseAnswer(team, selected) {
       selected,
       question.correctAnswer
     );
-  }
-
-  if (team === "right") {
+  } else {
     if (rightAnswered) return;
 
     rightAnswered = true;
@@ -275,13 +266,12 @@ function chooseAnswer(team, selected) {
     );
   }
 
-  // Хоёр баг хариулсан үед олсыг хөдөлгөнө
   if (leftAnswered && rightAnswered) {
     resolveRound();
   }
 }
 
-// Нэг үеийн үр дүн
+// Хоёр баг хариулсны дараах хөдөлгөөн
 function resolveRound() {
   if (leftCorrect && !rightCorrect) {
     ropeOffset -= ROPE_STEP;
@@ -289,8 +279,11 @@ function resolveRound() {
     ropeOffset += ROPE_STEP;
   }
 
-  // Хоёулаа зөв эсвэл хоёулаа буруу бол
-  // олсны байрлал өөрчлөгдөхгүй
+  ropeOffset = Math.max(
+    -WIN_DISTANCE,
+    Math.min(WIN_DISTANCE, ropeOffset)
+  );
+
   moveRope();
 
   nextTimer = setTimeout(() => {
@@ -306,7 +299,7 @@ function resolveRound() {
   }, NEXT_DELAY);
 }
 
-// Тоглоом дуусгах
+// Ялагч тодруулах
 function finishGame() {
   gameOver = true;
 
@@ -343,6 +336,7 @@ function restartGame() {
   ropeOffset = 0;
   leftScore = 0;
   rightScore = 0;
+
   leftAnswered = false;
   rightAnswered = false;
   leftCorrect = false;
@@ -353,14 +347,13 @@ function restartGame() {
   showQuestion();
 }
 
-// Асуултын өнгө, хэмжээ
+// Асуултын харагдах байдал
 questionText.style.color = "#e60000";
 questionText.style.fontSize = "40px";
 questionText.style.fontWeight = "900";
 questionText.style.textAlign = "center";
 questionText.style.lineHeight = "1.4";
 
-// Илүү тайлбар бичгийг нуух
 statusText.style.display = "none";
 
 // Тоглоом эхлүүлэх
