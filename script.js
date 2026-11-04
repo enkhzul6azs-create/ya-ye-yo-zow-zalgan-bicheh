@@ -127,6 +127,7 @@ const questions = [
   }
 ];
 
+// HTML элементүүд
 const questionText = document.getElementById("questionText");
 const statusText = document.getElementById("statusText");
 const leftAnswers = document.getElementById("leftAnswers");
@@ -134,22 +135,20 @@ const rightAnswers = document.getElementById("rightAnswers");
 const ropeGroup = document.getElementById("ropeGroup");
 const restartBtn = document.getElementById("restartBtn");
 
-const ROPE_STEP = 12;
-const WIN_DISTANCE = 60;
-const NEXT_DELAY = 1200;
+// Тоглоомын тохиргоо
+const ROPE_STEP = 20;
+const WIN_DISTANCE = 100;
+const NEXT_DELAY = 900;
 
 let gameQuestions = [];
 let questionIndex = 0;
 let ropeOffset = 0;
 let leftScore = 0;
 let rightScore = 0;
-let leftAnswered = false;
-let rightAnswered = false;
-let leftCorrect = false;
-let rightCorrect = false;
 let gameOver = false;
 let nextTimer = null;
 
+// Асуултуудыг санамсаргүй холих
 function shuffle(items) {
   const result = [...items];
 
@@ -162,16 +161,38 @@ function shuffle(items) {
   return result;
 }
 
+// Зураг хүрээнээс гарахгүй хөдөлгөөний зайг тооцох
+function getSafeLimit() {
+  const gameArea = document.querySelector(".game-area");
+  const areaWidth = gameArea.clientWidth;
+  const imageWidth = ropeGroup.getBoundingClientRect().width;
+
+  const availableSpace = Math.max(
+    0,
+    (areaWidth - imageWidth) / 2 - 8
+  );
+
+  return Math.min(WIN_DISTANCE, availableSpace);
+}
+
+// Олсыг хөдөлгөх
 function moveRope() {
-  // Зургийн голлуулах байрлалыг хадгална.
+  const limit = getSafeLimit();
+
+  const visualOffset = Math.max(
+    -limit,
+    Math.min(limit, ropeOffset)
+  );
+
   ropeGroup.style.setProperty(
     "--rope-offset",
-    `${ropeOffset}px`
+    `${visualOffset}px`
   );
 }
 
+// Хариултын товч үүсгэх
 function createButtons(container, options, team) {
-  container.replaceChildren();
+  container.innerHTML = "";
 
   options.forEach((option) => {
     const button = document.createElement("button");
@@ -188,20 +209,16 @@ function createButtons(container, options, team) {
   });
 }
 
+// Асуулт харуулах
 function showQuestion() {
   if (questionIndex >= gameQuestions.length) {
     finishGame();
     return;
   }
 
-  leftAnswered = false;
-  rightAnswered = false;
-  leftCorrect = false;
-  rightCorrect = false;
-
   const question = gameQuestions[questionIndex];
 
-  // Асуултын дугаар харуулахгүй.
+  // Асуултын дугааргүй, зөвхөн асуултыг харуулах
   questionText.textContent = question.question;
   statusText.textContent = "";
 
@@ -211,6 +228,7 @@ function showQuestion() {
   createButtons(rightAnswers, options, "right");
 }
 
+// Зөв, буруу хариултыг өнгөөр ялгах
 function colorAnswers(container, selected, correct) {
   const buttons = container.querySelectorAll("button");
 
@@ -225,26 +243,19 @@ function colorAnswers(container, selected, correct) {
   });
 }
 
+// Нэг баг хариулмагц ажиллах
 function chooseAnswer(team, selected) {
-  if (gameOver || nextTimer !== null) return;
+  if (gameOver || nextTimer !== null) {
+    return;
+  }
 
   const question = gameQuestions[questionIndex];
   const correct = selected === question.correctAnswer;
 
   if (team === "left") {
-    if (leftAnswered) return;
-
-    leftAnswered = true;
-    leftCorrect = correct;
-
     if (correct) {
       leftScore++;
-
-      // Баг 1 зөв хариулбал зүүн тийш
-      ropeOffset = Math.max(
-        -WIN_DISTANCE,
-        ropeOffset - ROPE_STEP
-      );
+      ropeOffset -= ROPE_STEP;
     }
 
     colorAnswers(
@@ -252,21 +263,10 @@ function chooseAnswer(team, selected) {
       selected,
       question.correctAnswer
     );
-
   } else {
-    if (rightAnswered) return;
-
-    rightAnswered = true;
-    rightCorrect = correct;
-
     if (correct) {
       rightScore++;
-
-      // Баг 2 зөв хариулбал баруун тийш
-      ropeOffset = Math.min(
-        WIN_DISTANCE,
-        ropeOffset + ROPE_STEP
-      );
+      ropeOffset += ROPE_STEP;
     }
 
     colorAnswers(
@@ -276,28 +276,38 @@ function chooseAnswer(team, selected) {
     );
   }
 
-  // Зөв хариулсан даруйд олс хөдөлнө.
+  // Олсны тоглоомын байрлалыг хязгаарлах
+  ropeOffset = Math.max(
+    -WIN_DISTANCE,
+    Math.min(WIN_DISTANCE, ropeOffset)
+  );
+
+  // Хоёр багийн товчийг түгжих
+  document.querySelectorAll(".answer-btn").forEach((button) => {
+    button.disabled = true;
+  });
+
+  // Зөв хариулсан бол олс тэр баг руу шууд хөдөлнө
   moveRope();
 
-  // Хоёр баг хариулсны дараа асуулт солигдоно.
-  if (leftAnswered && rightAnswered) {
-    nextTimer = setTimeout(() => {
-      nextTimer = null;
+  // Нэг баг хариулмагц дараагийн асуулт солигдоно
+  nextTimer = setTimeout(() => {
+    nextTimer = null;
 
-      if (Math.abs(ropeOffset) >= WIN_DISTANCE) {
-        finishGame();
-      } else {
-        questionIndex++;
-        showQuestion();
-      }
-    }, NEXT_DELAY);
-  }
+    if (Math.abs(ropeOffset) >= WIN_DISTANCE) {
+      finishGame();
+    } else {
+      questionIndex++;
+      showQuestion();
+    }
+  }, NEXT_DELAY);
 }
 
+// Ялагч тодруулах
 function finishGame() {
   gameOver = true;
 
-  let result;
+  let result = "";
 
   if (ropeOffset < 0) {
     result = "🏆 БАГ 1 ЯЛЛАА!";
@@ -314,31 +324,38 @@ function finishGame() {
   questionText.textContent = result;
   statusText.textContent = "";
 
-  leftAnswers.replaceChildren();
-  rightAnswers.replaceChildren();
+  leftAnswers.innerHTML = "";
+  rightAnswers.innerHTML = "";
 }
 
+// Дахин тоглох
 function restartGame() {
   if (nextTimer !== null) {
     clearTimeout(nextTimer);
+    nextTimer = null;
   }
 
-  nextTimer = null;
-
   gameQuestions = shuffle(questions);
+
   questionIndex = 0;
   ropeOffset = 0;
   leftScore = 0;
   rightScore = 0;
-  leftAnswered = false;
-  rightAnswered = false;
-  leftCorrect = false;
-  rightCorrect = false;
   gameOver = false;
 
   moveRope();
   showQuestion();
 }
 
+// Дэлгэцийн хэмжээ өөрчлөгдөхөд зургийг тааруулах
+window.addEventListener("resize", moveRope);
+
+// Зураг ачаалсны дараа байрлалыг тааруулах
+const tugImage = document.querySelector(".tug-image");
+tugImage.addEventListener("load", moveRope);
+
+// Дахин тоглох товч
 restartBtn.addEventListener("click", restartGame);
+
+// Тоглоом эхлүүлэх
 restartGame();
